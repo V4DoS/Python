@@ -1,0 +1,92 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import IPython.display
+
+df = pd.read_csv('test.csv', sep=';', encoding='utf-8')   #загрузка из файла
+df.plot(kind='scatter', x='Трафик', y='Магазин', title='Rating'); #прорисовка графиков точками
+
+
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import warnings
+import IPython.display
+
+df = pd.read_csv('test1.csv', sep=';')
+#print(df)
+
+#df.plot(kind='scatter', x='Трафик', y='Магазин', title='Rating');
+#df.loc[10:100] вывести позиции массива с 10 по 100
+#df.iloc[1]  вывести конкретную позицию с индексом 1
+#df = df.rename(columns={'Дата': 'ds','Продажи_день': 'y'}) переименование колонок
+#df.groupby('Продажи').sum() #Агрегирование данных 
+#df[['Трафик','Магазин']].plot.line(figsize=(50, 50),color={"Трафик": "red", "Магазин": "blue"})
+df.to_csv ('n_best{}.csv')      сохранение файла
+df.plot(kind='scatter', x='Продажи', y='Дата', title='Rating');
+
+acres_2019 = df[df['Year'] == 2019]['Acres']   фильтр по году
+
+_____________________________________________Ввод данных_________________________________________
+first_name = input('Введите свое имя: ')
+last_name = input('Введите свою фамилию : ')
+print('Привет, ', first_name, last_name)
+_____________________________________________Агрегирвоание_______________________________________
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('test1.csv', sep=';')
+df['Продажи'] = df['Продажи'].str.replace(',', '.').astype(float)  #Преобразивание типа данных Object в float
+
+summa = df.groupby('Магазин')['Продажи'].sum()
+print(summa)
+
+____________________________________________Циклы________________________________________________
+s='Дата поставки товара : 20.10.2023'
+new_s=''
+for i in s:
+    if i.isdigit()==True:
+        new_s+=i
+    else:
+        pass
+new_s
+
+_________________________________________________________________________________________________
+                                Как сделать exe файл 
+
+Для создания exe файла из файла с расширением .ipynb (Jupyter Notebook), вы можете использовать инструмент nbconvert,
+ который входит в состав Jupyter. Однако, следует отметить, что напрямую из ноутбука создать исполняемый файл не так просто,
+ поскольку ноутбуки предназначены для интерактивного использования.
+
+Вместо этого, вы можете сконвертировать ноутбук в скрипт Python (.py), а затем использовать PyInstaller для создания exe файла. Вот шаги:
+Откройте терминал (или командную строку) и перейдите в каталог, содержащий ваш ноутбук.
+Сначала сконвертируйте ноутбук в скрипт Python с помощью команды:
+
+bash
+Copy code
+jupyter nbconvert --to script your_notebook.ipynb
+Замените "your_notebook.ipynb" на имя вашего ноутбука.
+
+Затем используйте PyInstaller для создания exe файла из скрипта Python:
+
+bash
+Copy code
+pyinstaller --onefile your_notebook.py
+Замените "your_notebook.py" на имя созданного скрипта Python.
+После выполнения этих шагов у вас должен быть созданный exe файл в папке dist. 
+
+
+
+
+
+
+
+
+
+
+
+
